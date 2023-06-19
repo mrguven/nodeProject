@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('partials/head'); -%>
+	<body>
+		<div class="container-fluid ps-md-0">
+			<div class="row g-0">
+				<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+				<div class="col-md-8 col-lg-6">
+					<div class="login d-flex align-items-center py-5">
+						<div class="container">
+							<div class="row">
+								<div class="card-body p-4 p-sm-5">
+									<h5 class="card-title text-center mb-5 fw-light fs-5">
+										Register
+									</h5>
+									<form action="/signup" method="post">
+										<div class="form-floating mb-3">
+											<input
+												type="text"
+												class="form-control"
+												id="username"
+												name="username"
+												placeholder="Username"
+												autofocus
+											/>
+											<label for="username">Username</label>
+											<% if(err) { %>
+											<div
+												id="usernameError"
+												class="alert alert-danger"
+												data-bs-dismiss="alert"
+												role="alert"
+											>
+												<i><%= err.username %></i>
+											</div>
+											<% } %>
+										</div>
+		
+										<div class="form-floating mb-3">
+											<input
+												type="email"
+												class="form-control"
+												id="floatingInputEmail"
+												name="email"
+												placeholder="name@example.com"
+											/>
+											<label for="floatingInputEmail">Email address</label>
+											<% if (err){ %>
+											<div
+												id="emailError"
+												class="alert alert-danger"
+												data-bs-dismiss="alert"
+												role="alert"
+											>
+												<i><%= err.email %></i>
+											</div>
+											<%}%>
+										</div>
+		
+										<hr />
+		
+										<div class="form-floating mb-3">
+											<input
+												type="password"
+												class="form-control"
+												id="password"
+												name="password"
+												placeholder="Password"
+											/>
+											<label for="password">Password</label>
+											<% if (err){ %>
+											<div
+												id="passwordError"
+												class="alert alert-danger"
+												data-bs-dismiss="alert"
+												role="alert"
+											>
+												<i><%= err.password %></i>
+											</div>
+											<%}%>
+										</div>
+		
+										<div class="d-grid mb-2">
+											<button
+												class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+												type="submit"
+											>
+												Register
+											</button>
+											<a
+												class="btn btn-lg btn-light btn-login text-uppercase fw-bold mb-2"
+												href="/"
+											>
+												Back
+											</a>
+										</div>
+		
+										<a class="d-block text-center mt-2 small" href="/login"
+											>Have an account? Sign In</a
+										>
+		
+										<hr class="my-4" />
+		
+										<div class="d-grid mb-2">
+											<button
+												class="btn btn-lg btn-google btn-login fw-bold text-uppercase"
+												type="submit"
+											>
+												<i class="fab fa-google me-2"></i> Sign up with Google
+											</button>
+										</div>
+		
+										<div class="d-grid">
+											<button
+												class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase"
+												type="submit"
+											>
+												<i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

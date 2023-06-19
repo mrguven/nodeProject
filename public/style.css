@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+	body {
+		font-family: "Audiowide", cursive;
+		color: black;
+	}
+
+
+
+/* Like button */
+
+.block {
+    width: 50px;
+    height: 25px;
+    background: white;
+    border-radius: 9px;
+    /* box-shadow: 0 10px 25px rgba(124, 130, 141, 0.2); */
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    position: absolute;
+    top: calc(100% - 29px);
+    left: calc(100% - 55px);
+    transform: translate(-50%, -50%);
+  }
+  @media (max-width: 575.9px) {
+    .block {
+      width: 300px;
+    }
+  }
+  .block .heart-icon {
+	width: 1.1rem;
+    user-select: none;
+    position: absolute;
+    left: 20%;
+    top: 53%;
+    transform: translate(-20%, -50%);
+    fill: transparent;
+    transition: transform 0.25s ease-out;
+    transform-origin: 50% 50%;
+  }
+  
+  /* initial state of the like heart button */
+  .block .heart-icon .fill-color-shape {
+    fill: transparent;
+  }
+  .block .heart-icon.isLiked {
+    filter: drop-shadow(0 3px 5px #c44133);
+  }
+  
+  /* "liked" state of the like heart button */
+  .block .heart-icon.isLiked .fill-color-shape {
+    transition: fill 0.5s linear;
+    fill: #e74c3c;
+  }
+  .block .heart-icon:hover {
+    transform: translate(-20%, calc(-50% - 3px)) scale(1.03);
+  }
+  .block .number-of-likes {
+    font-size: 1.1rem;
+    user-select: none;
+    position: absolute;
+    left: 80%;
+    top: 53%;
+    transform: translate(-80%, -50%);
+    color: #292d34;
+  }
+
+  /* Home Page */
+
+  :root{
+
+    --color-blue: #83af9b;
+    --color-green: #c8c8a9;
+    --color-brown: #774f38;
+    --color-beige: #ece5ce;
+    --color-yellow: #f9cdad;
+    --color-pink: #fe4365;
+
+}
+
+.homePage-body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+nav {
+    background-color: black;
+}
+
+.btn-anime {
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 15px;
+  color: var(--color-brown);
+  background-color: var(--color-beige);
+  padding: 50px;
+  border-radius: 11px;
+  position: relative;
+  box-shadow: 20px 20px var(--color-blue);
+  font-family: "Baloo 2", cursive;
+  border: 1px solid var(--color-green);
+}
+.btn-anime:after {
+  transform: translateY(0px);
+  animation: float2 5s ease-in-out infinite;
+  content: ".";
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px var(--color-green);
+  -webkit-text-fill-color: var(--color-beige);
+  border: 1px solid var(--color-green);
+  text-shadow: 22px 22px var(--color-blue);
+  text-align: left;
+  font-size: 55px;
+  width: 55px;
+  height: 11px;
+  line-height: 30px;
+  border-radius: 11px;
+  background-color: var(--color-beige);
+  position: absolute;
+  display: block;
+  bottom: -30px;
+  left: 0;
+  box-shadow: 22px 22px var(--color-blue);
+  z-index: -2;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    line-height: 30px;
+    transform: translateY(0px);
+  }
+  55% {
+    transform: translateY(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translateY(0px);
+  }
+}
+
+/* home page card */
+
+.card.h-100:hover{
+  scale: 1.05;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+/* Login Page */
+
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url("https://source.unsplash.com/WEQbe2jBg40/600x1200");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Sign Up */
+
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center
+    url("https://source.unsplash.com/WEQbe2jBg40/414x512");
+  background-size: cover;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
