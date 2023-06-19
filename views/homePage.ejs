@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head.ejs") %>
+	<link
+		href="https://fonts.googleapis.com/css?family=Baloo+2:400,800&display=swap"
+		rel="stylesheet"
+	/>
+	<body class="homePage-body">
+		<%- include("./partials/navbar.ejs") %>
+
+		<div class="container">
+			<div class="users" style="margin-top: 50px">
+				<% if (posts.length > 0) { %>
+				<h2 class="mb-4 text-center" style="font-size: 6rem">
+					All Questions
+				</h2>
+				<div class="row row-cols-3 g-4 mt-4">
+					<% posts.forEach(post => { %> <% let formattedDate =
+					post.createdAt.getDate()+ "-" + (post.createdAt.getMonth()+1) + "-"
+					+post.createdAt.getFullYear() %>
+					<div class="col">
+						<div class="card h-100 border-info">
+							<img src="/image.webp" class="card-img-top img-fluid" alt="Question" />
+
+							<div class="card-body d-flex justify-content-between flex-column">
+								<h4 class="card-title fst-bold mb-4" style="font-size: 1.5em">
+									<%= post.title %>
+								</h4>
+								<p class="card-text fst-italic">
+									<%= post.question.slice(0,250) %>
+								</p>
+								<div class="mb-2">
+									<a href="/posts/create/<%= post._id %>" class="fst-italic"
+										>See more...</a
+									>
+								</div>
+							</div>
+
+							<div class="card-footer">
+								<small class="text-muted ">
+									Posted by <i class="text-danger"><%= post.owner.username.toString() %></i> at: <%= formattedDate %>
+								</small>
+							</div>
+						</div>
+					</div>
+					<% }) %> <% } else { %> There are no blogs to display... <% } %>
+				</div>
+			</div>
+		</div>
+		<div class="text-center mt-4"><%- include("./partials/footer.ejs") %></div>
+
+		<!-- Edit Modal -->
+		<%- include("./partials/postModal.ejs") %>
+	</body>
+
+	<!-- Script -->
+	<script>
+		let container = document.querySelector(".container");
+		container.insertAdjacentHTML(
+			"beforebegin",
+			`
+            <% if(username) {%>
+                <button
+                    type="button"
+                    class="btn btn-warning btn-lg mb-4 mt-4 fs-2 btn-anime"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    style="width: 25%; color: black"
+                >
+                    Ask a question!
+                </button>
+            <% } %> 
+                `
+		);
+	</script>
+</html>
+
+
